@@ -42,3 +42,9 @@ model_pipeline.fit(X_train, y_train)
 
 accuracy = model_pipeline.score(X_test, y_test)
 print(f"Model Accuracy: {accuracy:.2f}")
+
+joblib.dump(model_pipeline, 'loan_model.joblib')
+print("Model saved as loan_model.joblib")
+
+joblib.dump(le, 'loan_status_label_encoder.joblib')
+print("Label encoder for target variable saved as loan_status_label_encoder.joblib")
