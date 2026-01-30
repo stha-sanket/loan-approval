@@ -56,7 +56,3 @@ age,gender,occupation,education_level,marital_status,income,credit_score,loan_st
 32,Male,Salesman,High School,Single,45000,630,Denied
 50,Female,Professor,Doctoral,Married,120000,810,Approved
 39,Male,Architect,Master's,Married,100000,770,Approved
-25,Female,Receptionist,High School,Single,32000,570,Denied
-43,Male,Banker,Bachelor's,Married,95000,760,Approved
-30,Female,Writer,Master's,Single,55000,650,Approved
-38,Male,Chef,Associate's,Married,65000,700,Approved
