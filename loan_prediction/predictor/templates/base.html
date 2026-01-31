@@ -1,0 +1,158 @@
+
+    <!DOCTYPE html>
+
+    <html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}Loan Predictor{% endblock %}</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    </head>
+
+    <body class="bg-gray-50 font-sans leading-normal tracking-normal">
+
+    
+
+        <nav class="bg-white shadow-lg">
+
+            <div class="max-w-7xl mx-auto px-4">
+
+                <div class="flex justify-between">
+
+                    <div class="flex space-x-7">
+
+                        <div>
+
+                            <!-- Website Logo -->
+
+                            <a href="{% url 'home' %}" class="flex items-center py-4 px-2">
+
+                                <span class="font-semibold text-gray-900 text-lg">LoanPredict</span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Primary Navbar items -->
+
+                    <div class="hidden md:flex items-center space-x-1">
+
+                        <a href="{% url 'home' %}" class="py-4 px-2 text-gray-500 font-semibold hover:text-indigo-500 transition duration-300">Home</a>
+
+                        <a href="{% url 'predict' %}" class="py-4 px-2 text-gray-500 font-semibold hover:text-indigo-500 transition duration-300">Predict</a>
+
+                        <a href="{% url 'contact' %}" class="py-4 px-2 text-gray-500 font-semibold hover:text-indigo-500 transition duration-300">Contact</a>
+
+                    </div>
+
+                    <!-- Mobile menu button -->
+
+                    <div class="md:hidden flex items-center">
+
+                        <button class="outline-none mobile-menu-button">
+
+                        <svg class=" w-6 h-6 text-gray-500 hover:text-indigo-500 "
+
+                            x-show="!showMenu"
+
+                            fill="none"
+
+                            stroke-linecap="round"
+
+                            stroke-linejoin="round"
+
+                            stroke-width="2"
+
+                            viewBox="0 0 24 24"
+
+                            stroke="currentColor"
+
+                        >
+
+                            <path d="M4 6h16M4 12h16m-7 6h7"></path>
+
+                        </svg>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- mobile menu -->
+
+            <div class="hidden mobile-menu">
+
+                <ul class="">
+
+                    <li><a href="{% url 'home' %}" class="block text-sm px-2 py-4 text-white bg-indigo-500 font-semibold">Home</a></li>
+
+                    <li><a href="{% url 'predict' %}" class="block text-sm px-2 py-4 hover:bg-indigo-500 transition duration-300">Predict</a></li>
+
+                    <li><a href="{% url 'contact' %}" class="block text-sm px-2 py-4 hover:bg-indigo-500 transition duration-300">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    
+
+        <main>
+
+            {% block content %}
+
+            {% endblock %}
+
+        </main>
+
+    
+
+        <footer class="bg-white">
+
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center text-gray-500">
+
+                    &copy; 2025 LoanPredict Inc. All Rights Reserved.
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    
+
+        <script>
+
+            const btn = document.querySelector("button.mobile-menu-button");
+
+            const menu = document.querySelector(".mobile-menu");
+
+    
+
+            btn.addEventListener("click", () => {
+
+                menu.classList.toggle("hidden");
+
+            });
+
+        </script>
+
+    
+
+    </body>
+
+    </html>
