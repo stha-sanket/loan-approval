@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us - Loan Predictor{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Page Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                Get in Touch
+            </h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Have questions or feedback? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            </p>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-12">
+
+            <!-- Contact Form Section -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-8">
+                    Send Us a Message
+                </h2>
+
+                {% if success %}
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Success!</strong>
+                        <span class="block sm:inline"> Your message has been sent.</span>
+                    </div>
+                {% else %}
+                    <form method="post" class="space-y-6">
+                        {% csrf_token %}
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Your Name
+                                </label>
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <p class="mt-1 text-sm text-red-600">{{ form.name.errors|join:", " }}</p>
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Email Address
+                                </label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <p class="mt-1 text-sm text-red-600">{{ form.email.errors|join:", " }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="{{ form.subject.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                                Subject
+                            </label>
+                            {{ form.subject }}
+                            {% if form.subject.errors %}
+                                <p class="mt-1 text-sm text-red-600">{{ form.subject.errors|join:", " }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.message.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                                Message
+                            </label>
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                                <p class="mt-1 text-sm text-red-600">{{ form.message.errors|join:", " }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-200 ease-in-out transform hover:-translate-y-0.5">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="space-y-12">
+
+                <!-- Company Info Card -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-8">
+                        Contact Information
+                    </h2>
+
+                    <div class="space-y-8 text-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 bg-indigo-100 rounded-lg p-3">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Address</p>
+                                <p class="font-medium">
+                                    Maitidevi, Kathmandu<br>
+                                    44600, Nepal
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 bg-indigo-100 rounded-lg p-3">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Email</p>
+                                <a href="mailto:contact@utshah.com" class="font-medium text-indigo-600 hover:text-indigo-700">
+                                    contact@utshah.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 bg-indigo-100 rounded-lg p-3">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.92.59l1.59 3.59a1 1 0 01-.16 1.15l-2.06 2.06a7.008 7.008 0 005.46 5.46l2.06-2.06a1 1 0 011.15-.16l3.59 1.59a1 1 0 01.59.92V19a2 2 0 01-2 2H5a2 2 0 01-2-2v-14z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Phone</p>
+                                <p class="font-medium">(+977) 900000000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="mt-10 pt-8 border-t border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Business Hours</h3>
+                        <dl class="space-y-3 text-gray-700">
+                            <div class="flex justify-between">
+                                <dt>Monday – Friday</dt>
+                                <dd class="font-medium">9:00 AM – 6:00 PM</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt>Saturday</dt>
+                                <dd class="text-gray-500">Closed</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt>Sunday</dt>
+                                <dd class="text-gray-500">Closed</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
