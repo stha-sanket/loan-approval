@@ -1,0 +1,125 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Predict Loan Approval - Loan Predictor{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <div>
+            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                Loan Approval Prediction
+            </h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Fill out the form below to get a prediction.
+            </p>
+        </div>
+
+        <div class="bg-white max-w-md w-full rounded-2xl shadow-xl p-8 space-y-6">
+            <form action="{% url 'predict' %}" method="post">
+                {% csrf_token %}
+                <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+                        <input type="number" name="age" id="age" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+
+                    <div>
+                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                        <select name="gender" id="gender" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="occupation" class="block text-sm font-medium text-gray-700">Occupation</label>
+                        <select name="occupation" id="occupation" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <option value="Engineer">Engineer</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Student">Student</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Accountant">Accountant</option>
+                            <option value="Nurse">Nurse</option>
+                            <option value="Lawyer">Lawyer</option>
+                            <option value="Artist">Artist</option>
+                            <option value="IT">IT</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Consultant">Consultant</option>
+                            <option value="Analyst">Analyst</option>
+                            <option value="Salesman">Salesman</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Architect">Architect</option>
+                            <option value="Designer">Designer</option>
+                            <option value="Pharmacist">Pharmacist</option>
+                            <option value="Researcher">Researcher</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Pilot">Pilot</option>
+                            <option value="Receptionist">Receptionist</option>
+                            <option value="Banker">Banker</option>
+                            <option value="Writer">Writer</option>
+                            <option value="Chef">Chef</option>
+                            <option value="Veterinarian">Veterinarian</option>
+                            <option value="Sales">Sales</option>
+                            <option value="HR">HR</option>
+                            <option value="Electrician">Electrician</option>
+                            <option value="Realtor">Realtor</option>
+                            <option value="Photographer">Photographer</option>
+                            <option value="Editor">Editor</option>
+                            <option value="Programmer">Programmer</option>
+                            <option value="Dentist">Dentist</option>
+                            <option value="Musician">Musician</option>
+                            <option value="Psychologist">Psychologist</option>
+                            <option value="Server">Server</option>
+                            <option value="Software">Software</option>
+                            <option value="Stylist">Stylist</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="education_level" class="block text-sm font-medium text-gray-700">Education Level</label>
+                        <select name="education_level" id="education_level" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <option value="High School">High School</option>
+                            <option value="Associate's">Associate's</option>
+                            <option value="Bachelor's">Bachelor's</option>
+                            <option value="Master's">Master's</option>
+                            <option value="Doctoral">Doctoral</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="marital_status" class="block text-sm font-medium text-gray-700">Marital Status</label>
+                        <select name="marital_status" id="marital_status" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="income" class="block text-sm font-medium text-gray-700">Annual Income</label>
+                        <input type="number" name="income" id="income" step="1000" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+
+                    <div>
+                        <label for="credit_score" class="block text-sm font-medium text-gray-700">Credit Score</label>
+                        <input type="number" name="credit_score" id="credit_score" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Predict
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if result %}
+        <div class="bg-{{ result_class }}-100 border-l-4 border-{{ result_class }}-500 text-{{ result_class }}-700 p-4 rounded-md shadow-md" role="alert">
+            <p class="font-bold">Prediction Result</p>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
